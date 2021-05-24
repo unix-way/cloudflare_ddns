@@ -1,4 +1,4 @@
-FROM python:3-slim
+FROM python:3-alpine
 ADD requirements.txt update_ddns.py /app/
 WORKDIR /app
 RUN pip3 install -r requirements.txt

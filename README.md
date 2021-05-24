@@ -1,7 +1,9 @@
 # Cloudfare dynamic DNS updater
 
 ## Description
-The main script is `update_ddns.py` - it can be used either independenty or in a Docker container. The script uses the Cloudflare Python library and is based on the following [example](https://github.com/cloudflare/python-cloudflare/blob/master/examples/example_update_dynamic_dns.py) with the slightest changes. In runs in foreground and attempts to update a given DNS record every six hours. 
+The main script is `update_ddns.py` - it can be used either independenty or in a Docker container. 
+The script uses the Cloudflare Python library and is based on the following [example](https://github.com/cloudflare/python-cloudflare/blob/master/examples/example_update_dynamic_dns.py) with the slightest changes. 
+In runs in foreground and attempts to update a given DNS record every six hours. 
 
 ## Prerequisites
 * Python 3
