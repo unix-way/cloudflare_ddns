@@ -4,8 +4,6 @@ from __future__ import print_function
 
 import os
 import sys
-import re
-import json
 import requests
 import time
 import schedule
@@ -135,8 +133,23 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+    fallback_sched_time = 21600 # 6 hours
+    sched_time = os.getenv('SCHED_TIME')
+    if sched_time is None or sched_time == '':
+        print('SCHED_TIME not set or empty - falling back to default')
+        sched_time = fallback_sched_time
+    else:
+        try:
+            sched_time = int(sched_time)
+        except ValueError:
+            print('SCHED_TIME must be a number of seconds, but %s was given - falling back to default' % 
+                (sched_time))
+            sched_time = fallback_sched_time
+    print('SCHED_TIME: %d seconds' % (sched_time))
+
     try:
-        schedule.every(6).hours.do(main)
+        schedule.every(sched_time).seconds.do(main)
         while 1:
             schedule.run_pending()
             time.sleep(1)

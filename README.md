@@ -28,6 +28,9 @@ email = your@email.address
 token = your_cloudflare_api_key
 ```
 
+*Optional:* record update interval can be set in environment variable `SCHED_TIME`, which must be a number of seconds. 
+If not set or set incorrectly, it defaults to 21600 seconds (6 hours).
+
 Run the script by issuing the following command: `./update_ddns.py your.domain.name`.
 
 ### Docker
@@ -43,8 +46,3 @@ Or you can mount a configuration file like this:
 docker run -d -v $(PWD)/.cloudflare.cnf:/app/.cloudflare.cnf:ro \
            zonked/cloudflare_ddns your.domain.name
 ```
-#### Docker image disclaimer
-The resulting Docker image is huge. But fast. No bullshit. Fuck the disk space economy.
-
-## TODO list
-* Add a capability to set the record update period via an environment variable.
