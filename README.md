@@ -31,7 +31,8 @@ token = your_cloudflare_api_key
 ```
 
 *Optional:* record update interval can be set in environment variable `SCHED_TIME`, which must be a number of seconds. 
-If not set or set incorrectly, it defaults to 21600 seconds (6 hours).
+If not set or set incorrectly, it defaults to 21600 seconds (6 hours). For simplicity, negative values will be converted to absolute.
+Note that setting this value too low may cause the API request limit to be exceeded.
 
 Run the script by issuing the following command: `./update_ddns.py your.domain.name`.
 

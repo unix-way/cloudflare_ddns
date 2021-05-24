@@ -141,7 +141,7 @@ if __name__ == '__main__':
         sched_time = fallback_sched_time
     else:
         try:
-            sched_time = int(sched_time)
+            sched_time = abs(int(sched_time))
         except ValueError:
             print('SCHED_TIME must be a number of seconds, but %s was given - falling back to default' % 
                 (sched_time))
